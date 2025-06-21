@@ -493,55 +493,60 @@
     </section>
 
     <!-- Formulário de Agendamento -->
-    <section class="appointment-form" id="appointment-form">
-        <h2>Agende uma Demonstração do Aura </h2>
-        <form id="schedule-form">
-            <div class="form-group">
-                <label for="name">Nome Completo</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="company">Empresa</label>
-                <input type="text" id="company" name="company" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="phone">Telefone</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="building-type">Tipo de Edifício</label>
-                <select id="building-type" name="building-type" required>
-                    <option value="">Selecione...</option>
-                    <option value="corporate">Corporativo</option>
-                    <option value="shopping">Shopping Center</option>
-                    <option value="hospital">Hospital</option>
-                    <option value="hotel">Hotel</option>
-                    <option value="education">Instituição de Ensino</option>
-                    <option value="other">Outro</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="date">Data Preferencial</label>
-                <input type="date" id="date" name="date" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="message">Mensagem (Opcional)</label>
-                <textarea id="message" name="message"></textarea>
-            </div>
-            
-            <button type="submit" class="submit-btn">Enviar Solicitação</button>
-        </form>
-    </section>
+    <!-- Formulário de Agendamento -->
+<section class="appointment-form" id="appointment-form">
+    <h2>Agende uma Demonstração do Aura</h2>
+    <form action="https://formspree.io/f/nextarchsa@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="https://seusite.com/obrigado.html">
+        <input type="hidden" name="_subject" value="Novo contato via site Nextarch - Demonstração Aura">
+        <input type="text" name="_gotcha" style="display:none">
+        
+        <div class="form-group">
+            <label for="name">Nome Completo</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="company">Empresa</label>
+            <input type="text" id="company" name="company" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Telefone</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="building-type">Tipo de Edifício</label>
+            <select id="building-type" name="building-type" required>
+                <option value="">Selecione...</option>
+                <option value="corporate">Corporativo</option>
+                <option value="shopping">Shopping Center</option>
+                <option value="hospital">Hospital</option>
+                <option value="hotel">Hotel</option>
+                <option value="education">Instituição de Ensino</option>
+                <option value="other">Outro</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="date">Data Preferencial</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="message">Mensagem (Opcional)</label>
+            <textarea id="message" name="message"></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Enviar Solicitação</button>
+    </form>
+</section>
 
     <!-- Footer -->
     <footer id="contact">
@@ -580,51 +585,28 @@
     </footer>
 
     <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const ctaButtons = document.querySelectorAll('.cta-button');
-    const appointmentForm = document.getElementById('appointment-form');
-    
-    // Mostrar formulário ao clicar nos CTAs
-    ctaButtons.forEach(button => {
-      button.addEventListener('click', function(e) {
-        e.preventDefault();
-        appointmentForm.style.display = 'block';
-        appointmentForm.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-    
-    // Enviar dados para o Google Apps Script
-    const form = document.getElementById('schedule-form');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Captura os dados do formulário
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-      
-      // Envia para o Google Apps Script
-      fetch('https://script.google.com/macros/s/AKfycbxeQSaO4Yl_nehR8JqN_fAhSTwIjAMHlbD-uNxpMUVWGtl5OVjKSkQ4qsTycErbWx74/exec', { // Substitua pela URL do seu Web App
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(result => {
-        if (result.success) {
-          alert('Solicitação enviada com sucesso! Nossa equipe entrará em contato.');
-          form.reset();
-          appointmentForm.style.display = 'none';
-        } else {
-          alert('Erro: ' + (result.error || 'Tente novamente mais tarde.'));
-        }
-      })
-      .catch(error => {
-        alert('Erro ao enviar. Verifique sua conexão ou tente mais tarde.');
-      });
-    });
-  });
-</script>
+        // Mostrar formulário quando clicar nos botões CTA
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            const appointmentForm = document.getElementById('appointment-form');
+            
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    appointmentForm.style.display = 'block';
+                    appointmentForm.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            // Simular envio do formulário
+            const form = document.getElementById('schedule-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Solicitação enviada com sucesso! Nossa equipe entrará em contato para confirmar o agendamento.');
+                form.reset();
+                appointmentForm.style.display = 'none';
+            });
+        });
+    </script>
 </body>
-</html>
+</html>          
