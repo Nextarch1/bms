@@ -603,7 +603,7 @@
       const data = Object.fromEntries(formData.entries());
       
       // Envia para o Google Apps Script
-      fetch("https://script.google.com/macros/s/AKfycbzIxtajaUPr0VU9Vnc2qf5e5BmPUcnRZAIXxzsD3u4-ZOVtFevDf2-2Zi-2cg1_wCR2/exec", { // Substitua pela URL do seu Web App
+      fetch('https://script.google.com/macros/s/AKfycbxeQSaO4Yl_nehR8JqN_fAhSTwIjAMHlbD-uNxpMUVWGtl5OVjKSkQ4qsTycErbWx74/exec', { // Substitua pela URL do seu Web App
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
