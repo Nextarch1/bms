@@ -580,10 +580,11 @@
     </footer>
 
     <script>
-     document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function() {
     const ctaButtons = document.querySelectorAll('.cta-button');
     const appointmentForm = document.getElementById('appointment-form');
     
+    // Mostrar formulário ao clicar nos CTAs
     ctaButtons.forEach(button => {
       button.addEventListener('click', function(e) {
         e.preventDefault();
@@ -592,6 +593,7 @@
       });
     });
     
+    // Enviar dados para o Google Apps Script
     const form = document.getElementById('schedule-form');
     form.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -601,20 +603,25 @@
       const data = Object.fromEntries(formData.entries());
       
       // Envia para o Google Apps Script
-      fetch('https://script.google.com/macros/s/SEU_SCRIPT_ID/exec', {
+      fetch('SUA_URL_DO_WEB_APP', { // Substitua pela URL do seu Web App
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
           'Content-Type': 'application/json'
         }
       })
-      .then(response => {
-        alert('Solicitação enviada com sucesso! Nossa equipe entrará em contato.');
-        form.reset();
-        appointmentForm.style.display = 'none';
+      .then(response => response.json())
+      .then(result => {
+        if (result.success) {
+          alert('Solicitação enviada com sucesso! Nossa equipe entrará em contato.');
+          form.reset();
+          appointmentForm.style.display = 'none';
+        } else {
+          alert('Erro: ' + (result.error || 'Tente novamente mais tarde.'));
+        }
       })
       .catch(error => {
-        alert('Ocorreu um erro. Tente novamente mais tarde.');
+        alert('Erro ao enviar. Verifique sua conexão ou tente mais tarde.');
       });
     });
   });
