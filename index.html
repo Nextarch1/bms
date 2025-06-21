@@ -580,28 +580,44 @@
     </footer>
 
     <script>
-        // Mostrar formulário quando clicar nos botões CTA
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctaButtons = document.querySelectorAll('.cta-button');
-            const appointmentForm = document.getElementById('appointment-form');
-            
-            ctaButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    appointmentForm.style.display = 'block';
-                    appointmentForm.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-            
-            // Simular envio do formulário
-            const form = document.getElementById('schedule-form');
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Solicitação enviada com sucesso! Nossa equipe entrará em contato para confirmar o agendamento.');
-                form.reset();
-                appointmentForm.style.display = 'none';
-            });
-        });
-    </script>
+     document.addEventListener('DOMContentLoaded', function() {
+    const ctaButtons = document.querySelectorAll('.cta-button');
+    const appointmentForm = document.getElementById('appointment-form');
+    
+    ctaButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        appointmentForm.style.display = 'block';
+        appointmentForm.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    
+    const form = document.getElementById('schedule-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Captura os dados do formulário
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      
+      // Envia para o Google Apps Script
+      fetch('https://script.google.com/macros/s/SEU_SCRIPT_ID/exec', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        alert('Solicitação enviada com sucesso! Nossa equipe entrará em contato.');
+        form.reset();
+        appointmentForm.style.display = 'none';
+      })
+      .catch(error => {
+        alert('Ocorreu um erro. Tente novamente mais tarde.');
+      });
+    });
+  });
+</script>
 </body>
 </html>
