@@ -256,6 +256,66 @@
             font-size: 2rem;
         }
         
+        /* Formulário de Agendamento */
+        .appointment-form {
+            max-width: 600px;
+            margin: 5rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: none; /* Inicialmente oculto */
+        }
+        
+        .appointment-form h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #5e3dcc;
+        }
+        
         /* Footer */
         footer {
             background-color: var(--primary-color);
@@ -331,6 +391,11 @@
             .hero p {
                 font-size: 1rem;
             }
+            
+            .appointment-form {
+                padding: 1.5rem;
+                margin: 2rem auto;
+            }
         }
     </style>
 </head>
@@ -341,7 +406,7 @@
             <div class="logo">NEXT<span>ARCH</span></div>
             <ul class="nav-links">
                 <li><a href="#features">Recursos</a></li>
-                <li><a href="#product">Aura </a></li>
+                <li><a href="#product">Aura</a></li>
                 <li><a href="#testimonials">Depoimentos</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
@@ -351,9 +416,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Revolucione a Gestão do Seu Edifício com Aura </h1>
+            <h1>Revolucione a Gestão do Seu Edifício com Aura</h1>
             <p>O software integrado da Nextarch para monitoramento e controle predial inteligente, garantindo eficiência energética, segurança e conforto.</p>
-            <a href="#contact" class="cta-button">Solicite uma Demonstração</a>
+            <a href="#appointment-form" class="cta-button" id="hero-cta">Solicite uma Demonstração</a>
         </div>
     </section>
 
@@ -393,8 +458,8 @@
             <div class="showcase-content">
                 <h2>Aura - O Cérebro do Seu Edifício</h2>
                 <p>Nosso software de Building Management System integra todos os sistemas prediais em uma única plataforma intuitiva, proporcionando controle total e em tempo real do seu edifício comercial.</p>
-                <p>Com tecnologia de ponta e algoritmos inteligentes, o Aura BMS aprende com os padrões de uso do edifício para otimizar automaticamente o consumo energético, conforto térmico e segurança.</p>
-                <a href="#contact" class="cta-button">Saiba Mais</a>
+                <p>Com tecnologia de ponta e algoritmos inteligentes, o Aura aprende com os padrões de uso do edifício para otimizar automaticamente o consumo energético, conforto térmico e segurança.</p>
+                <a href="#appointment-form" class="cta-button" id="product-cta">Agendar Demonstração</a>
             </div>
         </div>
     </section>
@@ -423,8 +488,59 @@
         <div class="cta-container">
             <h2>Pronto para Transformar Seu Edifício?</h2>
             <p>Entre em contato com nossa equipe e descubra como o Aura pode otimizar sua operação predial.</p>
-            <a href="#contact" class="cta-button">Agende uma Demonstração</a>
+            <a href="#appointment-form" class="cta-button" id="bottom-cta">Agende uma Demonstração</a>
         </div>
+    </section>
+
+    <!-- Formulário de Agendamento -->
+    <section class="appointment-form" id="appointment-form">
+        <h2>Agende uma Demonstração do Aura </h2>
+        <form id="schedule-form">
+            <div class="form-group">
+                <label for="name">Nome Completo</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="company">Empresa</label>
+                <input type="text" id="company" name="company" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Telefone</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="building-type">Tipo de Edifício</label>
+                <select id="building-type" name="building-type" required>
+                    <option value="">Selecione...</option>
+                    <option value="corporate">Corporativo</option>
+                    <option value="shopping">Shopping Center</option>
+                    <option value="hospital">Hospital</option>
+                    <option value="hotel">Hotel</option>
+                    <option value="education">Instituição de Ensino</option>
+                    <option value="other">Outro</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="date">Data Preferencial</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Mensagem (Opcional)</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Enviar Solicitação</button>
+        </form>
     </section>
 
     <!-- Footer -->
@@ -438,29 +554,55 @@
                 <h3>Links Rápidos</h3>
                 <ul>
                     <li><a href="#features">Recursos</a></li>
-                    <li><a href="#product">Aura</a></li>
+                    <li><a href="#product">Aura </a></li>
                     <li><a href="#testimonials">Depoimentos</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h3>Contato</h3>
                 <ul>
-                    <li>nextarchsa@gmail.com</li>
-                    <li>(91) 99999-9999</li>
-                    <li>Belém - PA</li>
+                    <li>contato@nextarch.com</li>
+                    <li>(11) 1234-5678</li>
+                    <li>São Paulo - SP</li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h3>Siga-nos</h3>
                 <ul>
-                    <li><a href="#">Instagram</a></li>
-                    
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Nextarch. Todos os direitos reservados.</p>
+            <p>&copy; 2023 Nextarch. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        // Mostrar formulário quando clicar nos botões CTA
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            const appointmentForm = document.getElementById('appointment-form');
+            
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    appointmentForm.style.display = 'block';
+                    appointmentForm.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            // Simular envio do formulário
+            const form = document.getElementById('schedule-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Solicitação enviada com sucesso! Nossa equipe entrará em contato para confirmar o agendamento.');
+                form.reset();
+                appointmentForm.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 </html>
