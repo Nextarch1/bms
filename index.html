@@ -86,29 +86,26 @@ header {
 /* Mobile */
 @media (max-width: 768px) {
     header {
-        padding: 0.3rem 0.8rem !important; /* Aumentei o padding vertical */
-        min-height: 50px; /* Altura mínima maior */
+        padding: 0.15rem 0.6rem !important;  /* Padding vertical reduzido */
+        min-height: 44px;  /* Altura total menor */
     }
-    
+
     .navbar {
-        height: auto; /* Altura automática */
-        flex-wrap: wrap; /* Permite quebra de linha */
+        height: 44px;  /* Altura fixa para alinhamento */
     }
-    
+
     .nav-links {
-        width: 100%; /* Ocupa toda a largura */
-        justify-content: space-around; /* Distribui os itens */
-        padding: 0.5rem 0; /* Espaçamento interno */
+        padding: 0.25rem 0;  /* Espaçamento interno reduzido */
     }
-    
-    .nav-links li {
-        margin: 0; /* Remove margens laterais */
-    }
-    
+
     .nav-links a {
-        font-size: 0.8rem;
-        padding: 0.3rem 0.5rem; /* Padding melhorado */
-        white-space: nowrap; /* Evita quebra de texto */
+        font-size: 0.78rem;  /* Fonte ligeiramente menor */
+        padding: 0.15rem 0.5rem;  /* Espaçamento entre itens reduzido */
+    }
+
+    /* Mantemos o logo no tamanho atual (30px) */
+    .logo img {
+        height: 30px !important;  /* Tamanho original preservado */
     }
 }
         
