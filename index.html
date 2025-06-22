@@ -86,22 +86,49 @@ header {
 /* Mobile */
 @media (max-width: 768px) {
     header {
-        padding: 0.2rem 0.8rem !important;
-        min-height: 42px;
+        padding: 0.3rem 0.8rem !important;
+        min-height: 50px; /* Altura aumentada para caber tudo */
     }
-    
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
     .logo img {
-        height: 45px !important;
-        max-width: 140px;
+        height: 38px !important; /* Logo visível mas não dominante */
+        width: auto;
+        margin-right: 10px; /* Espaço após o logo */
     }
-    
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        overflow-x: auto; /* Permite rolagem se não couber */
+        white-space: nowrap; /* Impede quebra de linha */
+        scrollbar-width: none; /* Esconde a barra de rolagem */
+        -ms-overflow-style: none; /* Para IE */
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none; /* Esconde no Chrome/Safari */
+    }
+
     .nav-links li {
-        margin-left: 0.7rem;
+        margin: 0 0.5rem !important; /* Espaçamento uniforme */
+        display: inline-flex;
+        align-items: center;
+        height: 100%;
     }
-    
+
     .nav-links a {
-        font-size: 0.8rem;
-        padding: 0.25rem 0;
+        font-size: 0.82rem;
+        padding: 0.3rem 0;
+        display: inline-flex;
+        align-items: center;
+        height: 100%;
     }
 }
         
