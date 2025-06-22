@@ -29,10 +29,11 @@
         
         /* Header */
        /* HEADER ULTRA COMPACTO */
+/* HEADER COMPACTO REVISADO */
 header {
     background-color: var(--primary-color);
-    padding: 0.15rem 1rem !important;
-    min-height: 40px;
+    padding: 0.25rem 1.2rem !important; /* Aumentei um pouco o padding */
+    min-height: 48px; /* Aumentei a altura */
     position: fixed;
     width: 100%;
     top: 0;
@@ -46,14 +47,15 @@ header {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    height: 40px;
+    height: 48px; /* Ajustado para corresponder ao min-height */
 }
 
 .logo img {
-    height: 70px !important;
+    height: 34px !important; /* Aumentei 4px */
     width: auto;
-    max-width: 170px;
+    max-width: 150px;
     object-fit: contain;
+    transition: all 0.3s;
 }
 
 .nav-links {
@@ -64,36 +66,42 @@ header {
 }
 
 .nav-links li {
-    margin-left: 0.8rem;
+    margin-left: 1rem; /* Aumentei o espaçamento */
 }
 
 .nav-links a {
     color: var(--light-text);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 0.85rem; /* Aumentei a fonte */
     font-weight: 500;
-    padding: 0.2rem 0;
+    padding: 0.3rem 0; /* Aumentei o padding */
     transition: all 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+    transform: translateY(-1px);
 }
 
 /* Mobile */
 @media (max-width: 768px) {
     header {
-        padding: 0.1rem 0.5rem !important;
-        min-height: 36px;
+        padding: 0.2rem 0.8rem !important;
+        min-height: 42px;
     }
     
     .logo img {
-        height: 26px !important;
-        max-width: 110px;
+        height: 30px !important;
+        max-width: 130px;
     }
     
     .nav-links li {
-        margin-left: 0.5rem;
+        margin-left: 0.7rem;
     }
     
     .nav-links a {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
+        padding: 0.25rem 0;
     }
 }
         
