@@ -86,22 +86,29 @@ header {
 /* Mobile */
 @media (max-width: 768px) {
     header {
-        padding: 0.2rem 0.8rem !important;
-        min-height: 42px;
+        padding: 0.3rem 0.8rem !important; /* Aumentei o padding vertical */
+        min-height: 50px; /* Altura mínima maior */
     }
     
-    .logo img {
-        height: 45px !important;
-        max-width: 140px;
+    .navbar {
+        height: auto; /* Altura automática */
+        flex-wrap: wrap; /* Permite quebra de linha */
+    }
+    
+    .nav-links {
+        width: 100%; /* Ocupa toda a largura */
+        justify-content: space-around; /* Distribui os itens */
+        padding: 0.5rem 0; /* Espaçamento interno */
     }
     
     .nav-links li {
-        margin-left: 0.7rem;
+        margin: 0; /* Remove margens laterais */
     }
     
     .nav-links a {
         font-size: 0.8rem;
-        padding: 0.25rem 0;
+        padding: 0.3rem 0.5rem; /* Padding melhorado */
+        white-space: nowrap; /* Evita quebra de texto */
     }
 }
         
