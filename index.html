@@ -87,48 +87,51 @@ header {
 @media (max-width: 768px) {
     header {
         padding: 0.3rem 0.8rem !important;
-        min-height: 50px; /* Altura aumentada para caber tudo */
+        min-height: auto; /* Altura automática */
     }
 
     .navbar {
-        display: flex;
-        align-items: center;
-        height: 100%;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
     }
 
     .logo img {
-        height: 55px !important; /* Logo visível mas não dominante */
+        height: 55px !important;
         width: auto;
-        margin-right: 25px; /* Espaço após o logo */
+        margin: 0 auto;
+        display: block;
     }
 
     .nav-links {
         display: flex;
-        align-items: center;
-        height: 100%;
-        overflow-x: auto; /* Permite rolagem se não couber */
-        white-space: nowrap; /* Impede quebra de linha */
-        scrollbar-width: none; /* Esconde a barra de rolagem */
-        -ms-overflow-style: none; /* Para IE */
-    }
-
-    .nav-links::-webkit-scrollbar {
-        display: none; /* Esconde no Chrome/Safari */
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 10px 0;
+        -webkit-overflow-scrolling: touch;
     }
 
     .nav-links li {
-        margin: 0 0.5rem !important; /* Espaçamento uniforme */
-        display: inline-flex;
-        align-items: center;
-        height: 100%;
+        margin: 0 0.8rem !important;
     }
 
     .nav-links a {
         font-size: 0.82rem;
-        padding: 0.3rem 0;
-        display: inline-flex;
-        align-items: center;
-        height: 100%;
+    }
+
+    /* Ajustes para outras seções se necessário */
+    .hero h1 {
+        font-size: 2rem;
     }
 }
         
