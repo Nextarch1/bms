@@ -451,6 +451,44 @@ header {
                 margin: 2rem auto;
             }
         }
+        /* Client Types Section */
+.client-types {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--secondary-color);
+}
+
+.client-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.client-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    border-top: 4px solid var(--accent-color);
+}
+
+.client-card:hover {
+    transform: translateY(-5px);
+}
+
+.client-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.client-card h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
     </style>
 </head>
 <body>
@@ -519,24 +557,42 @@ header {
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimonials">
-        <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Depois de implementar o Aura em nosso complexo corporativo, reduzimos nossos custos com energia em 32% no primeiro ano. Impressionante!"</p>
-                <p class="testimonial-author">Carlos Mendes, Diretor de Facilities</p>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"A interface intuitiva e os relatórios detalhados do Aura transformaram completamente nossa gestão predial. Altamente recomendado!"</p>
-                <p class="testimonial-author">Ana Lúcia, Gerente de Operações</p>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"O sistema de segurança integrado do Aura nos deu tranquilidade e controle total sobre o acesso ao nosso edifício. Serviço excepcional da Nextarch."</p>
-                <p class="testimonial-author">Roberto Almeida, Segurança Patrimonial</p>
-            </div>
+    <!-- Tipos de Clientes Section -->
+<section class="client-types" id="clients">
+    <h2 class="section-title">Para Quem é o Aura</h2>
+    <div class="client-types-grid">
+        <div class="client-card">
+            <div class="client-icon">🏢</div>
+            <h3>Edifícios Corporativos</h3>
+            <p>Torres de escritórios e complexos empresariais que buscam eficiência energética e gestão integrada de facilities.</p>
         </div>
-    </section>
+        <div class="client-card">
+            <div class="client-icon">🛍️</div>
+            <h3>Shoppings Centers</h3>
+            <p>Centros comerciais que necessitam de controle climático inteligente e monitoramento de áreas comuns.</p>
+        </div>
+        <div class="client-card">
+            <div class="client-icon">🏥</div>
+            <h3>Hospitais e Clínicas</h3>
+            <p>Instituições de saúde que demandam sistemas prediais confiáveis e controle preciso de ambientes.</p>
+        </div>
+        <div class="client-card">
+            <div class="client-icon">🏨</div>
+            <h3>Hotéis e Resorts</h3>
+            <p>Estabelecimentos hoteleiros que valorizam conforto automático e eficiência operacional.</p>
+        </div>
+        <div class="client-card">
+            <div class="client-icon">🎓</div>
+            <h3>Instituições de Ensino</h3>
+            <p>Universidades e escolas que precisam gerenciar múltiplos prédios e salas de forma integrada.</p>
+        </div>
+        <div class="client-card">
+            <div class="client-icon">💼</div>
+            <h3>Coworkings e Escritórios Flex</h3>
+            <p>Espaços compartilhados que requerem controle de acesso e otimização de áreas comuns.</p>
+        </div>
+    </div>
+</section>
 
     <!-- CTA Section -->
     <section class="cta-section">
