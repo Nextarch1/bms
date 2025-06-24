@@ -25,122 +25,124 @@
             color: var(--text-color);
             line-height: 1.6;
             background-color: white;
+            padding-top: 60px; /* Compensar header fixo */
         }
         
-        /* Header */
-       /* HEADER ULTRA COMPACTO */
-/* HEADER COMPACTO REVISADO */
-header {
-    background-color: var(--primary-color);
-    padding: 0.25rem 1.2rem !important; /* Aumentei um pouco o padding */
-    min-height: 48px; /* Aumentei a altura */
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-}
+        /* Header Compacto */
+        header {
+            background-color: var(--primary-color);
+            padding: 0.25rem 1.2rem;
+            height: 60px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 48px; /* Ajustado para corresponder ao min-height */
-}
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+        }
 
-.logo img {
-    height: 58px !important; /* Aumentei 4px */
-    width: auto;
-    max-width: 170px;
-    object-fit: contain;
-    transition: all 0.3s;
-}
+        .logo img {
+            height: 50px;
+            width: auto;
+            max-width: 170px;
+            object-fit: contain;
+            transition: all 0.3s;
+        }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+        .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            align-items: center;
+            height: 100%;
+        }
 
-.nav-links li {
-    margin-left: 1rem; /* Aumentei o espaçamento */
-}
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
 
-.nav-links a {
-    color: var(--light-text);
-    text-decoration: none;
-    font-size: 0.85rem; /* Aumentei a fonte */
-    font-weight: 500;
-    padding: 0.3rem 0; /* Aumentei o padding */
-    transition: all 0.2s;
-}
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.3rem 0;
+            transition: all 0.2s;
+        }
 
-.nav-links a:hover {
-    color: var(--accent-color);
-    transform: translateY(-1px);
-}
+        .nav-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-1px);
+        }
 
-/* Mobile */
-@media (max-width: 768px) {
-    header {
-        padding: 0.3rem 0.8rem !important;
-        min-height: auto; /* Altura automática */
-    }
+        /* Mobile Styles - Ajuste Específico para Links Mais Altos */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 56px;
+            }
+            
+            header {
+                height: 56px;
+                padding: 0.3rem 0.8rem;
+            }
 
-    .navbar {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        height: auto;
-    }
+            .navbar {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
 
-    .logo {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 10px;
-    }
+            .logo {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0;
+            }
 
-    .logo img {
-        height: 55px !important;
-        width: auto;
-        margin: 0 auto;
-        display: block;
-    }
+            .logo img {
+                height: 46px;
+                margin: 0 auto;
+            }
 
-    .nav-links {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        height: auto;
-        overflow-x: auto;
-        white-space: nowrap;
-        padding: 10px 0;
-        -webkit-overflow-scrolling: touch;
-    }
+            .nav-links {
+                padding-top: 8px; /* Empurra links para cima */
+                align-items: flex-start; /* Alinha ao topo */
+                justify-content: center;
+                width: 100%;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 8px;
+                -webkit-overflow-scrolling: touch;
+            }
 
-    .nav-links li {
-        margin: 0 0.8rem !important;
-    }
+            .nav-links a {
+                position: relative;
+                top: -4px; /* Ajuste fino de posição */
+                font-size: 0.85rem;
+            }
 
-    .nav-links a {
-        font-size: 0.82rem;
-    }
+            .nav-links li {
+                margin: 0 0.8rem;
+            }
+        }
 
-    /* Ajustes para outras seções se necessário */
-    .hero h1 {
-        font-size: 2rem;
-    }
-}
-        
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, #6a3cb5 100%);
             color: var(--light-text);
             padding: 8rem 2rem 4rem;
             text-align: center;
+            margin-top: -60px; /* Compensa header fixo */
         }
         
         .hero-content {
@@ -264,34 +266,42 @@ header {
             margin-bottom: 2rem;
         }
         
-        /* Testimonials */
-        .testimonials {
+        /* Client Types Section */
+        .client-types {
             padding: 5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            background-color: var(--secondary-color);
         }
         
-        .testimonial-grid {
+        .client-types-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
         
-        .testimonial-card {
+        .client-card {
             background-color: white;
             border-radius: 10px;
             padding: 2rem;
+            text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--accent-color);
         }
         
-        .testimonial-text {
-            font-style: italic;
+        .client-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .client-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
             margin-bottom: 1rem;
         }
         
-        .testimonial-author {
-            font-weight: 600;
+        .client-card h3 {
+            margin-bottom: 1rem;
             color: var(--primary-color);
         }
         
@@ -321,7 +331,7 @@ header {
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            display: none; /* Inicialmente oculto */
+            display: none;
         }
         
         .appointment-form h2 {
@@ -426,19 +436,11 @@ header {
             opacity: 0.7;
         }
         
-        /* Responsividade */
+        /* Responsividade adicional */
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .nav-links {
-                margin-top: 1rem;
-            }
-            
-            .nav-links li {
-                margin: 0 0.5rem;
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+                margin-top: -56px;
             }
             
             .hero h1 {
@@ -449,66 +451,36 @@ header {
                 font-size: 1rem;
             }
             
-            .appointment-form {
-                padding: 1.5rem;
-                margin: 2rem auto;
+            .features, 
+            .product-showcase,
+            .client-types,
+            .testimonials {
+                padding: 3rem 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
             }
         }
-        /* Client Types Section */
-.client-types {
-    padding: 5rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: var(--secondary-color);
-}
-
-.client-types-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.client-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s;
-    border-top: 4px solid var(--accent-color);
-}
-
-.client-card:hover {
-    transform: translateY(-5px);
-}
-
-.client-icon {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.client-card h3 {
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
     </style>
 </head>
 <body>
     <!-- Header/Navbar -->
-<header class="navbar-slim"> <!-- Adicionei a classe extra -->
-    <div class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="Nextarch">
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Nextarch">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Recursos</a></li>
+                <li><a href="#product">Aura</a></li>
+                <li><a href="#clients">Soluções</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
         </div>
-        <ul class="nav-links">
-            <li><a href="#features">Recursos</a></li>
-            <li><a href="#product">Aura</a></li>
-            <li><a href="#clients">Soluções</a></li>
-            <li><a href="#contact">Contato</a></li>
-        </ul>
-    </div>
-</header>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -561,41 +533,41 @@ header {
     </section>
 
     <!-- Tipos de Clientes Section -->
-<section class="client-types" id="clients">
-    <h2 class="section-title">Para Quem é o Aura</h2>
-    <div class="client-types-grid">
-        <div class="client-card">
-            <div class="client-icon">🏢</div>
-            <h3>Edifícios Corporativos</h3>
-            <p>Torres de escritórios e complexos empresariais que buscam eficiência energética e gestão integrada de facilities.</p>
+    <section class="client-types" id="clients">
+        <h2 class="section-title">Para Quem é o Aura</h2>
+        <div class="client-types-grid">
+            <div class="client-card">
+                <div class="client-icon">🏢</div>
+                <h3>Edifícios Corporativos</h3>
+                <p>Torres de escritórios e complexos empresariais que buscam eficiência energética e gestão integrada de facilities.</p>
+            </div>
+            <div class="client-card">
+                <div class="client-icon">🛍️</div>
+                <h3>Shoppings Centers</h3>
+                <p>Centros comerciais que necessitam de controle climático inteligente e monitoramento de áreas comuns.</p>
+            </div>
+            <div class="client-card">
+                <div class="client-icon">🏥</div>
+                <h3>Hospitais e Clínicas</h3>
+                <p>Instituições de saúde que demandam sistemas prediais confiáveis e controle preciso de ambientes.</p>
+            </div>
+            <div class="client-card">
+                <div class="client-icon">🏨</div>
+                <h3>Hotéis e Resorts</h3>
+                <p>Estabelecimentos hoteleiros que valorizam conforto automático e eficiência operacional.</p>
+            </div>
+            <div class="client-card">
+                <div class="client-icon">🎓</div>
+                <h3>Instituições de Ensino</h3>
+                <p>Universidades e escolas que precisam gerenciar múltiplos prédios e salas de forma integrada.</p>
+            </div>
+            <div class="client-card">
+                <div class="client-icon">💼</div>
+                <h3>Coworkings e Escritórios Flex</h3>
+                <p>Espaços compartilhados que requerem controle de acesso e otimização de áreas comuns.</p>
+            </div>
         </div>
-        <div class="client-card">
-            <div class="client-icon">🛍️</div>
-            <h3>Shoppings Centers</h3>
-            <p>Centros comerciais que necessitam de controle climático inteligente e monitoramento de áreas comuns.</p>
-        </div>
-        <div class="client-card">
-            <div class="client-icon">🏥</div>
-            <h3>Hospitais e Clínicas</h3>
-            <p>Instituições de saúde que demandam sistemas prediais confiáveis e controle preciso de ambientes.</p>
-        </div>
-        <div class="client-card">
-            <div class="client-icon">🏨</div>
-            <h3>Hotéis e Resorts</h3>
-            <p>Estabelecimentos hoteleiros que valorizam conforto automático e eficiência operacional.</p>
-        </div>
-        <div class="client-card">
-            <div class="client-icon">🎓</div>
-            <h3>Instituições de Ensino</h3>
-            <p>Universidades e escolas que precisam gerenciar múltiplos prédios e salas de forma integrada.</p>
-        </div>
-        <div class="client-card">
-            <div class="client-icon">💼</div>
-            <h3>Coworkings e Escritórios Flex</h3>
-            <p>Espaços compartilhados que requerem controle de acesso e otimização de áreas comuns.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
@@ -607,60 +579,58 @@ header {
     </section>
 
     <!-- Formulário de Agendamento -->
-    <!-- Formulário de Agendamento -->
-<!-- Formulário de Agendamento -->
-<section class="appointment-form" id="appointment-form">
-    <h2>Agende uma Demonstração do Aura</h2>
-    <form action="https://formspree.io/f/mvgrbnvb" method="POST">
-        <input type="hidden" name="_next" value="https://seusite.com/obrigado.html">
-        <input type="hidden" name="_subject" value="Novo agendamento para demonstração Aura">
-        
-        <div class="form-group">
-            <label for="name">Nome Completo</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="company">Empresa</label>
-            <input type="text" id="company" name="company" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="phone">Telefone</label>
-            <input type="tel" id="phone" name="phone" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="building-type">Tipo de Edifício</label>
-            <select id="building-type" name="building-type" required>
-                <option value="">Selecione...</option>
-                <option value="corporate">Corporativo</option>
-                <option value="shopping">Shopping Center</option>
-                <option value="hospital">Hospital</option>
-                <option value="hotel">Hotel</option>
-                <option value="education">Instituição de Ensino</option>
-                <option value="other">Outro</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="date">Data Preferencial</label>
-            <input type="date" id="date" name="date" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="message">Mensagem (Opcional)</label>
-            <textarea id="message" name="message"></textarea>
-        </div>
-        
-        <button type="submit" class="submit-btn">Enviar Solicitação</button>
-    </form>
-</section>
+    <section class="appointment-form" id="appointment-form">
+        <h2>Agende uma Demonstração do Aura</h2>
+        <form action="https://formspree.io/f/mvgrbnvb" method="POST">
+            <input type="hidden" name="_next" value="https://seusite.com/obrigado.html">
+            <input type="hidden" name="_subject" value="Novo agendamento para demonstração Aura">
+            
+            <div class="form-group">
+                <label for="name">Nome Completo</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="company">Empresa</label>
+                <input type="text" id="company" name="company" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Telefone</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="building-type">Tipo de Edifício</label>
+                <select id="building-type" name="building-type" required>
+                    <option value="">Selecione...</option>
+                    <option value="corporate">Corporativo</option>
+                    <option value="shopping">Shopping Center</option>
+                    <option value="hospital">Hospital</option>
+                    <option value="hotel">Hotel</option>
+                    <option value="education">Instituição de Ensino</option>
+                    <option value="other">Outro</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="date">Data Preferencial</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Mensagem (Opcional)</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Enviar Solicitação</button>
+        </form>
+    </section>
 
     <!-- Footer -->
     <footer id="contact">
@@ -673,7 +643,7 @@ header {
                 <h3>Links Rápidos</h3>
                 <ul>
                     <li><a href="#features">Recursos</a></li>
-                    <li><a href="#product">Aura </a></li>
+                    <li><a href="#product">Aura</a></li>
                     <li><a href="#clients">Soluções</a></li>
                 </ul>
             </div>
@@ -681,7 +651,6 @@ header {
                 <h3>Contato</h3>
                 <ul>
                     <li><a href="mailto:nextarchsa@gmail.com">nextarchsa@gmail.com</a></li>
-                    
                     <li>Belém - PA</li>
                 </ul>
             </div>
@@ -712,7 +681,7 @@ header {
             });
             
             // Simular envio do formulário
-            const form = document.getElementById('schedule-form');
+            const form = document.querySelector('.appointment-form form');
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 alert('Solicitação enviada com sucesso! Nossa equipe entrará em contato para confirmar o agendamento.');
@@ -722,4 +691,4 @@ header {
         });
     </script>
 </body>
-</html>          
+</html>
