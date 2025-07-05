@@ -51,11 +51,14 @@ header {
 }
 
 .logo img {
-    height: 58px !important; /* Aumentei 4px */
-    width: auto;
-    max-width: 170px;
-    object-fit: contain;
-    transition: all 0.3s;
+        height: 58px !important;
+        width: auto;
+        max-width: 170px;
+        object-fit: contain;
+        transition: all 0.3s;
+        border: 2px solid white; /* Adicionei esta linha */
+        border-radius: 4px; /* Opcional: suaviza os cantos da borda */
+        padding: 2px; /* Espaço entre a logo e a borda */
 }
 
 .nav-links {
@@ -104,10 +107,9 @@ header {
     }
 
     .logo img {
-        height: 55px !important;
-        width: auto;
-        margin: 0 auto;
-        display: block;
+            height: 55px !important;
+            border: 2px solid white; /* Borda também no mobile */
+            padding: 2px;
     }
 
     .nav-links {
